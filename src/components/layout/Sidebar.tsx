@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   TrendingUp, 
@@ -15,21 +16,22 @@ import { useTranslation } from 'react-i18next';
 interface MenuItem {
   icon: React.ElementType;
   label: string;
-  active: boolean;
+  path: string;
   badge?: number;
 }
 
 const Sidebar: React.FC = () => {
   const { darkMode, notifications } = useERPStore();
   const { t } = useTranslation();
+  const location = useLocation();
 
   const menuItems: MenuItem[] = [
-    { icon: LayoutDashboard, label: t('dashboard'), active: true },
-    { icon: TrendingUp, label: t('sales'), active: false, badge: 5 },
-    { icon: Package, label: t('inventory'), active: false, badge: 2 },
-    { icon: Users, label: t('customers'), active: false },
-    { icon: BarChart3, label: t('reports'), active: false },
-    { icon: Settings, label: t('settings'), active: false },
+    { icon: LayoutDashboard, label: t('dashboard'), path: '/dashboard' },
+    { icon: TrendingUp, label: t('sales'), path: '/sales' },
+    { icon: Package, label: t('inventory'), path: '/inventory' },
+    { icon: Users, label: t('customers'), path: '/customers' },
+    { icon: BarChart3, label: t('reports'), path: '/reports' },
+    { icon: Settings, label: t('settings'), path: '/settings' },
   ];
 
   const unreadNotifications = notifications.filter(n => !n.read).length;
@@ -64,9 +66,10 @@ const Sidebar: React.FC = () => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: index * 0.1 }}
           >
-            <button
+            <Link
+              to={item.path}
               className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 group ${
-                item.active
+                location.pathname === item.path
                   ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
                   : darkMode
                   ? 'text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -79,14 +82,14 @@ const Sidebar: React.FC = () => {
               </div>
               {item.badge && (
                 <span className={`px-2 py-1 text-xs rounded-full ${
-                  item.active 
+                  location.pathname === item.path 
                     ? 'bg-white text-blue-500' 
                     : 'bg-blue-500 text-white'
                 }`}>
                   {item.badge}
                 </span>
               )}
-            </button>
+            </Link>
           </motion.div>
         ))}
       </nav>
