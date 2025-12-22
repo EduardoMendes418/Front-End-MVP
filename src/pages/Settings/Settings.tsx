@@ -46,6 +46,7 @@ const Settings: React.FC = () => {
 								const IconComponent = tab.icon;
 								return (
 									<button
+										type="button"
 										key={tab.id}
 										onClick={() => setActiveTab(tab.id)}
 										className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-left transition-colors duration-200 ${
@@ -85,6 +86,7 @@ const Settings: React.FC = () => {
 											</p>
 										</div>
 										<button
+											type="button"
 											onClick={toggleTheme}
 											className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ${
 												darkMode ? "bg-blue-500" : "bg-gray-300"
@@ -99,10 +101,11 @@ const Settings: React.FC = () => {
 									</div>
 
 									<div className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl">
-										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+										<label htmlFor="companyName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
 											Nome da Empresa
 										</label>
 										<input
+											id="companyName"
 											type="text"
 											defaultValue="ERP Pro Business"
 											className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500"
@@ -110,10 +113,10 @@ const Settings: React.FC = () => {
 									</div>
 
 									<div className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl">
-										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+										<label htmlFor="timezone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
 											Fuso Horário
 										</label>
-										<select className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500">
+										<select id="timezone" className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500">
 											<option>America/Sao_Paulo (GMT-3)</option>
 											<option>UTC</option>
 											<option>America/New_York (GMT-5)</option>
@@ -146,9 +149,9 @@ const Settings: React.FC = () => {
 											label: "Notificações Financeiras",
 											description: "Alertas financeiros importantes",
 										},
-									].map((item, index) => (
+									].map((item) => (
 										<div
-											key={index}
+											key={item.label}
 											className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-xl"
 										>
 											<div>
@@ -159,7 +162,7 @@ const Settings: React.FC = () => {
 													{item.description}
 												</p>
 											</div>
-											<button className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-500 transition-colors duration-200">
+											<button type="button" className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-500 transition-colors duration-200">
 												<span className="inline-block h-4 w-4 transform rounded-full bg-white translate-x-6 transition-transform duration-200" />
 											</button>
 										</div>
@@ -175,28 +178,31 @@ const Settings: React.FC = () => {
 								</h3>
 								<div className="space-y-4">
 									<div className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl">
-										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+										<label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
 											Senha Atual
 										</label>
 										<input
+											id="currentPassword"
 											type="password"
 											className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500"
 										/>
 									</div>
 									<div className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl">
-										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+										<label htmlFor="newPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
 											Nova Senha
 										</label>
 										<input
+											id="newPassword"
 											type="password"
 											className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500"
 										/>
 									</div>
 									<div className="p-4 border border-gray-200 dark:border-gray-700 rounded-xl">
-										<label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+										<label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
 											Confirmar Nova Senha
 										</label>
 										<input
+											id="confirmPassword"
 											type="password"
 											className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 focus:outline-none focus:border-blue-500"
 										/>
@@ -206,7 +212,7 @@ const Settings: React.FC = () => {
 						)}
 
 						<div className="flex justify-end mt-6">
-							<button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl flex items-center space-x-2 transition-colors duration-200">
+							<button type="button" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl flex items-center space-x-2 transition-colors duration-200" onClick={() => {}}>
 								<Save size={20} />
 								<span className="font-medium">Salvar Alterações</span>
 							</button>
