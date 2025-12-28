@@ -1,15 +1,13 @@
-import React from "react";
+import type React from "react";
 import { I18nextProvider } from "react-i18next";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import i18n from "./i18n";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-
-import Dashboard from "./pages/Dashboard";
-import Sales from "./pages/Sales/Sales";
-import Inventory from "./pages/Inventory/Inventory";
+import i18n from "./i18n";
 import Customers from "./pages/Customers/Customers";
+import Dashboard from "./pages/Dashboard";
+import Inventory from "./pages/Inventory/Inventory";
 import Reports from "./pages/Reports/Reports";
+import Sales from "./pages/Sales/Sales";
 import Settings from "./pages/Settings/Settings";
 
 import "./styles/globals.css";
