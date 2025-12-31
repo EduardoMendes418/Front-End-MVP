@@ -1,19 +1,20 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-	Sun,
-	Moon,
-	Globe,
-	Bell,
-	Search,
-	X,
-	CheckCircle,
 	AlertCircle,
+	Bell,
+	CheckCircle,
+	Globe,
 	Info,
+	Moon,
+	Search,
+	Sun,
+	X,
 } from "lucide-react";
-import { useERPStore } from "../../stores/erpStore";
+import type React from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Notification } from "../../types";
+import { useERPStore } from "../../stores/erpStore";
+import type { Notification } from "../../types";
 
 const Header: React.FC = () => {
 	const {
@@ -28,11 +29,12 @@ const Header: React.FC = () => {
 
 	const languages = useMemo(
 		() => [
-			{ code: "pt", name: "Português", flag: "🇧🇷" },
-			{ code: "en", name: "English", flag: "🇺🇸" },
-			{ code: "es", name: "Español", flag: "🇪🇸" },
+			{ code: "pt", name: t("portuguese"), flag: "🇧🇷" },
+			{ code: "en", name: t("english"), flag: "🇺🇸" },
+			{ code: "es", name: t("spanish"), flag: "🇪🇸" },
+			{ code: "de", name: t("german"), flag: "🇩🇪" },
 		],
-		[],
+		[t],
 	);
 
 	const getNotificationIcon = useCallback((type: Notification["type"]) => {
@@ -214,7 +216,6 @@ const Header: React.FC = () => {
 										? "bg-gray-800 border-gray-700"
 										: "bg-white border-gray-200"
 								}`}
-								role="menu"
 							>
 								{languages.map((lang) => (
 									<li key={lang.code} role="none">
