@@ -1,7 +1,7 @@
-import React from "react";
+import type React from "react";
 import { useERPStore } from "../../stores/erpStore";
-import Sidebar from "./Sidebar";
 import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 interface LayoutProps {
 	children: React.ReactNode;
