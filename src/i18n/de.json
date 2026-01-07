@@ -35,5 +35,7 @@
 	"portuguese": "Portugiesisch",
 	"english": "Englisch",
 	"spanish": "Spanisch",
-	"german": "Deutsch"
+	"german": "Deutsch",
+	"welcomeAdmin": "Willkommen, Admin",
+	"loginSubtitleAdmin": "Geben Sie Ihre Admin-Anmeldeinformationen ein, um auf das Dashboard zuzugreifen"
 }

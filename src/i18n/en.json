@@ -35,5 +35,7 @@
 	"portuguese": "Portuguese",
 	"english": "English",
 	"spanish": "Spanish",
-	"german": "German"
+	"german": "German",
+	"welcomeAdmin": "Welcome, Admin",
+	"loginSubtitleAdmin": "Enter your admin credentials to access the dashboard"
 }

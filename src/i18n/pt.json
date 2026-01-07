@@ -35,5 +35,7 @@
 	"portuguese": "Português",
 	"english": "Inglês",
 	"spanish": "Espanhol",
-	"german": "Alemão"
+	"german": "Alemão",
+	"welcomeAdmin": "Bem-vindo, Administrador",
+	"loginSubtitleAdmin": "Digite suas credenciais de administrador para acessar o painel"
 }
