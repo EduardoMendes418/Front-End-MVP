@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { apiService } from "../services/api";
 
 export const useApi = (endpoint: string, initialData: any = null) => {
@@ -10,7 +10,7 @@ export const useApi = (endpoint: string, initialData: any = null) => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
-				let result;
+				let result: any;
 
 				switch (endpoint) {
 					case "users":
