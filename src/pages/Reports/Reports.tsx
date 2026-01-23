@@ -1,9 +1,10 @@
 /** biome-ignore-all lint/a11y/useButtonType: <explanation> */
 /** biome-ignore-all lint/a11y/noLabelWithoutControl: <explanation> */
-import React from "react";
+
 import { motion } from "framer-motion";
+import { Calendar, Download, FileText, Filter } from "lucide-react";
+import type React from "react";
 import { useTranslation } from "react-i18next";
-import { FileText, Download, Filter, Calendar } from "lucide-react";
 
 const Reports: React.FC = () => {
 	const { t } = useTranslation();
