@@ -1,8 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { DollarSign, ShoppingCart, TrendingUp, Users } from "lucide-react";
+import type React from "react";
 import { useTranslation } from "react-i18next";
-
-import { DollarSign, TrendingUp, ShoppingCart, Users } from "lucide-react";
 
 const Sales: React.FC = () => {
 	const { t } = useTranslation();
