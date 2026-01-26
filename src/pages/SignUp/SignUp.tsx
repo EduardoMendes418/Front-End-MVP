@@ -82,7 +82,7 @@ const SignUp: React.FC = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.name}
-								className="w-full py-4 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+								className="w-full py-3 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
 							/>
 						</motion.div>
 						{formik.touched.name && formik.errors.name ? (
@@ -110,7 +110,7 @@ const SignUp: React.FC = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.email}
-								className="w-full py-4 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+								className="w-full py-3 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
 							/>
 						</motion.div>
 						{formik.touched.email && formik.errors.email ? (
@@ -138,7 +138,7 @@ const SignUp: React.FC = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.password}
-								className="w-full py-4 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+								className="w-full py-3 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
 							/>
 						</motion.div>
 						{formik.touched.password && formik.errors.password ? (
@@ -166,7 +166,7 @@ const SignUp: React.FC = () => {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.confirmPassword}
-								className="w-full py-4 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+								className="w-full py-3 pl-14 pr-4 text-white placeholder-gray-400 bg-gray-800 border-2 border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
 							/>
 						</motion.div>
 						{formik.touched.confirmPassword &&
