@@ -16,9 +16,11 @@ import Reports from "./pages/Reports/Reports";
 import Sales from "./pages/Sales/Sales";
 import Settings from "./pages/Settings/Settings";
 import Login from "./pages/Login/Login";
+import AdminLogin from "./pages/Admin/Login";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import SignUp from "./pages/SignUp/SignUp";
 import { useAuthStore } from "./stores/authStore";
+import { useAdminAuthStore } from "./stores/adminAuthStore";
 
 import "./styles/globals.css";
 
@@ -33,22 +35,36 @@ const PrivateRoutes: React.FC = () => {
 	);
 };
 
+const AdminPrivateRoutes: React.FC = () => {
+	const { isAdminAuthenticated } = useAdminAuthStore();
+	return isAdminAuthenticated ? (
+		<Layout>
+			<Outlet />
+		</Layout>
+	) : (
+		<Navigate to="/admin/login" replace />
+	);
+};
+
 const App: React.FC = () => {
 	return (
 		<I18nextProvider i18n={i18n}>
 			<Router>
 				<Routes>
 					<Route path="/login" element={<Login />} />
+					<Route path="/admin/login" element={<AdminLogin />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/forgot-password" element={<ForgotPassword />} />
 
 					<Route element={<PrivateRoutes />}>
-						<Route path="/" element={<Dashboard />} />
-						<Route path="/dashboard" element={<Dashboard />} />
 						<Route path="/sales" element={<Sales />} />
 						<Route path="/inventory" element={<Inventory />} />
 						<Route path="/customers" element={<Customers />} />
 						<Route path="/reports" element={<Reports />} />
+					</Route>
+					<Route element={<AdminPrivateRoutes />}>
+						<Route path="/" element={<Dashboard />} />
+						<Route path="/dashboard" element={<Dashboard />} />
 						<Route path="/settings" element={<Settings />} />
 					</Route>
 				</Routes>
