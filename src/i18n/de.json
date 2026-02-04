@@ -37,5 +37,6 @@
 	"spanish": "Spanisch",
 	"german": "Deutsch",
 	"welcomeAdmin": "Willkommen, Admin",
-	"loginSubtitleAdmin": "Geben Sie Ihre Admin-Anmeldeinformationen ein, um auf das Dashboard zuzugreifen"
+	"loginSubtitleAdmin": "Geben Sie Ihre Admin-Anmeldeinformationen ein, um auf das Dashboard zuzugreifen",
+	"sair": "Abmelden"
 }
