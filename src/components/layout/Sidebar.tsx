@@ -2,14 +2,16 @@ import { motion } from "framer-motion";
 import {
 	BarChart3,
 	LayoutDashboard,
+	LogOut,
 	Package,
 	Settings,
 	TrendingUp,
 	Users,
 } from "lucide-react";
 import type React from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAdminAuthStore } from "../../stores/adminAuthStore";
 import { useAuthStore } from "../../stores/authStore";
 import { useERPStore } from "../../stores/erpStore";
@@ -26,8 +28,22 @@ const Sidebar: React.FC = () => {
 	const { darkMode, notifications } = useERPStore();
 	const { t } = useTranslation();
 	const location = useLocation();
-	const { isAdminAuthenticated } = useAdminAuthStore();
-	const { isAuthenticated } = useAuthStore();
+	const navigate = useNavigate();
+	const { isAdminAuthenticated, logout: adminLogout } = useAdminAuthStore();
+	const { isAuthenticated, logout: userLogout } = useAuthStore();
+
+	const handleLogout = () => {
+		adminLogout();
+		userLogout();
+	};
+
+	useEffect(() => {
+		if (!isAdminAuthenticated && location.pathname.startsWith("/admin")) {
+			navigate("/admin/login");
+		} else if (!isAuthenticated && !isAdminAuthenticated) {
+			navigate("/login");
+		}
+	}, [isAdminAuthenticated, isAuthenticated, navigate, location.pathname]);
 
 	const allMenuItems: MenuItem[] = [
 		{
@@ -162,6 +178,19 @@ const Sidebar: React.FC = () => {
 						</span>
 					)}
 				</div>
+				<button
+					onClick={handleLogout}
+					className={`mt-4 w-full flex items-center justify-center px-4 py-3 rounded-xl transition-all duration-200 group
+						${
+							darkMode
+								? "bg-dark-100 text-gray-300 hover:bg-red-700 hover:text-white"
+								: "bg-primary-50 text-gray-600 hover:bg-red-500 hover:text-white"
+						}
+					`}
+				>
+					<LogOut size={20} className="mr-2" />
+					<span className="font-medium">{t("sair")}</span>
+				</button>
 			</motion.div>
 		</motion.div>
 	);
