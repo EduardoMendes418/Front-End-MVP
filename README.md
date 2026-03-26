@@ -66,6 +66,8 @@ Sistema ERP desenvolvido em **React** com **TypeScript**, oferecendo uma soluÃ§Ã
 
 ## ðŸ›  Tecnologias Utilizadas
 
+![Gemini-CLI](https://github.com/user-attachments/assets/3bb02d3c-b923-4e23-a8d7-40966318c111)
+
 ### **Frontend**
 
 - React 18
@@ -74,6 +76,7 @@ Sistema ERP desenvolvido em **React** com **TypeScript**, oferecendo uma soluÃ§Ã
 - Framer Motion
 - React Router
 - Recharts
+- Gemini CLI
 
 ### **Estado & Gerenciamento**
 
